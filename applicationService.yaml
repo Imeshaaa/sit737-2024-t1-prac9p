@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: applicationservice
+  labels:
+    app: myapp
+spec:
+  selector:
+    app: myapp
+  externalTrafficPolicy: Cluster
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 3000
+  type: LoadBalancer
